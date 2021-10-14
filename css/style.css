@@ -1,0 +1,46 @@
+:root {
+    --bg-body: hsl(273, 75%, 66%);
+    --bg-card: #fff;
+    --c-title: hsl(237, 12%, 33%);
+    --c-question-open: hsl(240, 6%, 50%);
+    --c-question-hover: red;
+    --c-answer: hsl(240, 5%, 91%);
+}
+
+body {
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+summary {
+    font-weight: 400;
+}
+
+p {
+    font-size: 12px;
+    color: var(--c-answer);
+}
+
+body {
+    background-color: var(--bg-body);
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 100px 0;
+    outline: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card {
+    width: 80%;
+    padding: 20px;
+    background-color: var(--bg-card);
+}
