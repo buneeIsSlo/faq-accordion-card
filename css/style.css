@@ -9,38 +9,91 @@
 
 body {
     font-family: "Kumbh Sans", sans-serif;
+    font-size: 12px;
 }
 
 h1 {
     font-weight: 700;
+    font-size: 2rem;
 }
 
 summary {
     font-weight: 400;
+    font-size: 14px;
 }
 
 p {
-    font-size: 12px;
-    color: var(--c-answer);
+    color: hsl(240, 6%, 50%);
 }
 
+
 body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--bg-body);
 }
 
 .container {
-    width: 90%;
-    margin: 0 auto;
-    padding: 100px 0;
-    outline: 2px solid red;
+    width: 85%;
+    margin: 0;
+    padding: 150px 0 50px 0;
+    /* outline: 2px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.card {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: var(--bg-card);
+    border-radius: 25px;
+    position: relative;
+}
+
+.illustration__box,
+.illustration__woman {
+    position: absolute;
+}
+
+.illustration__box {
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+}
+
+.illustration__woman {
+    z-index: 100;
+    top: 11%;
+    left: 45%;
+    transform: translate(-50%, -20%);
+    /* display: none; */
+}
+
+.card__faq {
+    margin-top: 7rem;
+    padding-bottom: 1rem;
 }
 
 
-.card {
-    width: 80%;
-    padding: 20px;
-    background-color: var(--bg-card);
+h1 {
+    text-align: center;
+    padding: .8rem;
+}
+
+.accordion {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+summary {
+    list-style: none;
+}
+
+hr {
+    margin: 1rem 0;
 }
