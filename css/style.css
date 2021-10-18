@@ -1,9 +1,10 @@
 :root {
     --bg-body: hsl(273, 75%, 66%);
     --bg-card: #fff;
-    --c-title: hsl(237, 12%, 33%);
-    --c-question-open: hsl(240, 6%, 50%);
-    --c-question-hover: red;
+    --c-title: hsl(240, 6%, 50%);
+    --c-question-close: hsl(237, 12%, 33%);
+    --c-question-open: hsl(238, 29%, 16%);
+    --c-question-hover: hsl(14, 88%, 65%);
     --c-answer: hsl(240, 5%, 91%);
 }
 
@@ -90,10 +91,86 @@ h1 {
     overflow-y: auto;
 }
 
+details {
+    transition: height .2s ease-out;
+}
+
+details[open] summary {
+    font-weight: 700;
+    color: var(--c-question-open);
+}
+
 summary {
     list-style: none;
+    color: var(--c-question-close);
+    position: relative;
+}
+
+summary:hover {
+    color: var(--c-question-hover);
+    cursor: pointer;
+    transition: color .3s ease-out
+}
+
+summary:after {
+    content: url("../images/icon-arrow-down.svg");
+    position: absolute;
+    top: 0;
+    right: 1%;
+    transition: transform .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+details[open] summary:after {
+    transform: rotate(180deg);
 }
 
 hr {
     margin: 1rem 0;
+    border: none;
+    border-top: 2px solid hsl(240, 5%, 91%);
+}
+
+
+/* -----Animations----- */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-1.25em);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+details[open] p {
+    animation-name: fadeInDown;
+    animation-duration: 0.5s;
+}
+
+
+/* -----Media Queries----- */
+
+
+@media(min-width: 720px) {
+
+
+    .container {
+        max-width: 655px;
+    }
+
+    .illustration__woman {
+        top: 11%;
+        left: 48%;
+        transform: translate(-50%, -20%);
+    }
+
+    .card {
+        background: url("../images/bg-pattern-desktop.svg");
+        background-color: var(--bg-card);
+        background-size: 95%;
+        background-position: 500px 50%;
+        background-repeat: no-repeat;
+    }
 }
