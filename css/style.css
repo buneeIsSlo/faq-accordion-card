@@ -1,5 +1,6 @@
 :root {
-    --bg-body: hsl(273, 75%, 66%);
+    --bg-violet: hsl(273, 75%, 66%);
+    --bg-blue: hsl(240, 73%, 65%);
     --bg-card: #fff;
     --c-title: hsl(240, 6%, 50%);
     --c-question-close: hsl(237, 12%, 33%);
@@ -33,7 +34,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--bg-body);
+    background: linear-gradient(180deg, var(--bg-violet), var(--bg-blue));
 }
 
 .container {
@@ -52,6 +53,7 @@ body {
     padding: 20px;
     margin: 0 auto;
     background-color: var(--bg-card);
+    box-shadow: 0px 50px 40px 0px rgba(0, 0, 0, 0.2);
     border-radius: 25px;
     position: relative;
 }
@@ -89,10 +91,7 @@ h1 {
 .accordion {
     max-height: 250px;
     overflow-y: auto;
-}
-
-details {
-    transition: height .2s ease-out;
+    overflow-x: hidden;
 }
 
 details[open] summary {
@@ -106,7 +105,8 @@ summary {
     position: relative;
 }
 
-summary:hover {
+summary:hover,
+summary:focus {
     color: var(--c-question-hover);
     cursor: pointer;
     transition: color .3s ease-out
@@ -167,10 +167,63 @@ details[open] p {
     }
 
     .card {
-        background: url("../images/bg-pattern-desktop.svg");
-        background-color: var(--bg-card);
+        background-image: url("../images/bg-pattern-desktop.svg");
         background-size: 95%;
         background-position: 500px 50%;
         background-repeat: no-repeat;
+    }
+}
+
+
+@media(min-width: 1200px) {
+
+
+    .container {
+        min-width: 62%;
+        max-width: 62%;
+        padding: 0;
+        position: relative;
+    }
+
+    .container:before {
+        content: url("../images/illustration-box-desktop.svg");
+        position: absolute;
+        top: 38%;
+        left: -90px;
+        z-index: 101;
+    }
+
+
+    .card {
+        padding: 70px;
+        display: flex;
+        flex-direction: row-reverse;
+        background-position: -1050% 72%;
+        background-size: 95%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card:before {
+        content: url("../images/illustration-woman-online-desktop.svg");
+        width: 90%;
+        position: absolute;
+        left: -70px;
+        top: 55px;
+    }
+
+    .illustration__box,
+    .illustration__woman {
+        display: none;
+    }
+
+    .card__faq {
+        width: 45%;
+        margin: 0;
+    }
+
+    h1 {
+        text-align: left;
+        padding-left: 0;
     }
 }
