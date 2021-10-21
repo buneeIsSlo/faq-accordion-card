@@ -9,6 +9,9 @@
     --c-answer: hsl(240, 5%, 91%);
 }
 
+
+/* -----Typography----- */
+
 body {
     font-family: "Kumbh Sans", sans-serif;
     font-size: 12px;
@@ -29,6 +32,9 @@ p {
 }
 
 
+/* -----Global styles----- */
+
+
 body {
     min-height: 100vh;
     display: flex;
@@ -41,7 +47,6 @@ body {
     width: 85%;
     margin: 0;
     padding: 150px 0 50px 0;
-    /* outline: 2px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +79,6 @@ body {
     top: 11%;
     left: 45%;
     transform: translate(-50%, -20%);
-    /* display: none; */
 }
 
 .card__faq {
@@ -149,7 +153,7 @@ hr {
 }
 
 
-/* -----Animations----- */
+/* -----Mobile-view Animations----- */
 
 @keyframes fadeInDown {
     0% {
@@ -163,7 +167,7 @@ hr {
     }
 }
 
-@keyframes hoverMobile {
+@keyframes illustrationMobile {
     0% {
         top: 11%
     }
@@ -177,13 +181,35 @@ hr {
     }
 }
 
+@keyframes shadow {
+    0% {
+        height: 104px;
+        width: 240px;
+    }
+
+    50% {
+        height: 95px;
+        width: 210px;
+    }
+
+    100% {
+        height: 104px;
+        width: 240px;
+    }
+}
+
+
 details[open] p {
     animation-name: fadeInDown;
     animation-duration: 0.5s;
 }
 
 .illustration__woman {
-    animation: hoverMobile 3s cubic-bezier(0.37, 0, 0.63, 1) forwards infinite;
+    animation: illustrationMobile 2.5s cubic-bezier(0.37, 0, 0.63, 1) forwards infinite;
+}
+
+.illustration__box {
+    animation: shadow 2.5s cubic-bezier(0.37, 0, 0.63, 1) forwards infinite;
 }
 
 
@@ -261,6 +287,45 @@ details[open] p {
         text-align: left;
         padding-left: 0;
     }
+
+    /* -----Desktop-view Animations----- */
+
+    @keyframes illustrationDesktop {
+        0% {
+            top: 55px;
+        }
+
+        50% {
+            top: 70px;
+        }
+
+        100% {
+            top: 55px;
+        }
+    }
+
+    @keyframes box {
+        0% {
+            top: 38%;
+        }
+
+        50% {
+            top: 42%;
+        }
+
+        100% {
+            top: 38%;
+        }
+    }
+
+    .container:before {
+        animation: box 2s cubic-bezier(0.37, 0, 0.63, 1) forwards infinite;
+    }
+
+    .card:before {
+        animation: illustrationDesktop 2s cubic-bezier(0.37, 0, 0.63, 1) forwards infinite;
+    }
+
 }
 
 
@@ -269,5 +334,18 @@ details[open] p {
     .container {
         min-width: 62%;
         max-width: 62%;
+    }
+}
+
+
+/* -----Prefers reduced motion----- */
+
+@media (prefers-reduced-motion) {
+
+    .illustration__woman,
+    .illustration__box,
+    .container:before,
+    .card::before {
+        animation: none;
     }
 }
