@@ -1,3 +1,4 @@
+/* -----CSS variables----- */
 :root {
     --bg-violet: hsl(273, 75%, 66%);
     --bg-blue: hsl(240, 73%, 65%);
@@ -34,7 +35,6 @@ p {
 
 /* -----Global styles----- */
 
-
 body {
     min-height: 100vh;
     display: flex;
@@ -63,18 +63,18 @@ body {
     position: relative;
 }
 
-.illustration__box,
-.illustration__woman {
+.illustration__pattern-mobile,
+.illustration__woman-mobile {
     position: absolute;
 }
 
-.illustration__box {
+.illustration__pattern-mobile {
     top: 2%;
     left: 50%;
     transform: translate(-50%, -10%);
 }
 
-.illustration__woman {
+.illustration__woman-mobile {
     z-index: 100;
     top: 11%;
     left: 45%;
@@ -204,11 +204,11 @@ details[open] p {
     animation-duration: 0.5s;
 }
 
-.illustration__woman {
+.illustration__woman-mobile {
     animation: illustrationMobile 2.5s cubic-bezier(0.37, 0, 0.63, 1) forwards infinite;
 }
 
-.illustration__box {
+.illustration__pattern-mobile {
     animation: shadow 2.5s cubic-bezier(0.37, 0, 0.63, 1) forwards infinite;
 }
 
@@ -216,13 +216,15 @@ details[open] p {
 /* -----Media Queries----- */
 
 
+/* Screen widths 720px to 1200px */
+
 @media(min-width: 720px) {
 
     .container {
         max-width: 655px;
     }
 
-    .illustration__woman {
+    .illustration__woman-mobile {
         top: 11%;
         left: 48%;
         transform: translate(-50%, -20%);
@@ -236,6 +238,8 @@ details[open] p {
     }
 }
 
+
+/* Screen widths 1200px to 1440px */
 
 @media(min-width: 1200px) {
 
@@ -273,8 +277,8 @@ details[open] p {
         top: 55px;
     }
 
-    .illustration__box,
-    .illustration__woman {
+    .illustration__pattern-mobile,
+    .illustration__woman-mobile {
         display: none;
     }
 
@@ -287,6 +291,7 @@ details[open] p {
         text-align: left;
         padding-left: 0;
     }
+
 
     /* -----Desktop-view Animations----- */
 
@@ -329,6 +334,8 @@ details[open] p {
 }
 
 
+/* Screen widths 1440 and above */
+
 @media (min-width: 1440px) {
 
     .container {
@@ -342,10 +349,10 @@ details[open] p {
 
 @media (prefers-reduced-motion) {
 
-    .illustration__woman,
-    .illustration__box,
+    .illustration__woman-mobile,
+    .illustration__pattern-mobile,
     .container:before,
-    .card::before {
+    .card:before {
         animation: none;
     }
 }
