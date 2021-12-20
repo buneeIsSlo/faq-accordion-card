@@ -92,7 +92,7 @@ h1 {
 }
 
 .accordion {
-    max-height: 250px;
+    max-height: 255px;
     overflow-y: auto;
     overflow-x: hidden;
 }
